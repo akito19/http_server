@@ -61,14 +61,14 @@ pub fn parse(mut buf: &[u8]) -> ParseResult<Request> {
 fn http09_get_success_root() {
     let req = b"GET /\r\n";
     let res = parse(req);
-    assert!(req.is_complete());
+    assert!(res.is_complete());
 }
 
 #[test]
 fn http09_get_success_foo_bar() {
     let req = b"GET /foo/bar\r\n";
     let res = parse(req);
-    assert!(req.is_complete());
+    assert!(res.is_complete());
 }
 
 #[test]
